@@ -1,0 +1,54 @@
+﻿@page
+@model BD_CINEMA.Pages.Positions.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Position[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position[0].Salary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position[0].Duties)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position[0].Demands)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Position) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duties)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Demands)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
